@@ -1,9 +1,21 @@
 package com.github.grishasht.photostorage.model;
 
+import java.util.List;
+
 public interface Image {
 
-    Integer getId();
+    Integer getPId();
 
-    String getName();
+    String getId();
+
+    String getAuthor();
+
+    String getCamera();
+
+    List<String> getTags();
+
+    String getCroppedPicture();
+
+    String getFullPicture();
 
 }
