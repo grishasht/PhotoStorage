@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface Image {
 
-    Integer getPId();
+    Integer getPid();
 
-    String getId();
+    String getName();
 
     String getAuthor();
 

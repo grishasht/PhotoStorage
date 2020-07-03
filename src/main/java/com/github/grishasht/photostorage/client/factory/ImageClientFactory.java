@@ -1,7 +1,10 @@
 package com.github.grishasht.photostorage.client.factory;
 
 import com.github.grishasht.photostorage.client.ImageClient;
+import com.github.grishasht.photostorage.client.factory.proxy.ImageClientInvocationHandler;
 import com.github.grishasht.photostorage.client.impl.ImageClientImpl;
+
+import java.lang.reflect.Proxy;
 
 public class ImageClientFactory {
 
@@ -12,6 +15,10 @@ public class ImageClientFactory {
 
     public ImageClient createDefaultInstance(){
 
-        return new ImageClientImpl(KEY_API);
+        return (ImageClient) Proxy.newProxyInstance(
+                ImageClient.class.getClassLoader(),
+                ImageClientImpl.class.getInterfaces(),
+                new ImageClientInvocationHandler(new ImageClientImpl(KEY_API), 5)
+        );
     }
 }
