@@ -13,7 +13,7 @@ public class ImageClientFactory {
     // this key will be here.
     private final static String KEY_API = "23567b218376f79d9415";
 
-    public ImageClient createDefaultInstance(){
+    public ImageClient createDefaultInstance() {
 
         return (ImageClient) Proxy.newProxyInstance(
                 ImageClient.class.getClassLoader(),
